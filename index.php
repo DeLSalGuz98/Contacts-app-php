@@ -1,9 +1,9 @@
 <?php
-  $contacts = [
-    ["name" => "Denilson", "phoneNumber"=>"980558364"],
-    ["name" => "Yessica", "phoneNumber"=>"993662890"],
-    ["name" => "Romulo", "phoneNumber"=>"962251308"],
-  ]
+  if(file_exists("contacts.json")){
+    $contacts = json_decode(file_get_contents("contacts.json"), true);
+  }else{
+    $contacts = [];
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -45,10 +45,10 @@
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link" href="./index.html">Home</a>
+                <a class="nav-link" href="./index.php">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="./add.html">Add Contact</a>
+                <a class="nav-link" href="./add.php">Add Contact</a>
               </li>
             </ul>
           </div>
@@ -57,7 +57,15 @@
       <main>
         <div class="container pt-4 p-3">
           <div class="row">
-            <?php foreach($contacts as $contact){?>
+            <?php if(count($contacts) == 0): ?>
+            <div class="col-md-4 mx-auto">
+              <div class="card card-body text-center">
+                <p>No contacts saved yet</p>
+                <a href="add.php">Add One!</a>
+              </div>
+            </div>
+            <?php endif ?>
+            <?php foreach($contacts as $contact):?>
             <div class="col-md-4 mb-3">
               <div class="card text-center">
                 <div class="card-body">
@@ -68,7 +76,7 @@
                 </div>
               </div>
             </div>
-            <?php } ?>
+            <?php endforeach ?> 
             </div>
           </div>
         </div>
