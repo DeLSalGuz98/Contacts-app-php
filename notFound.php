@@ -38,7 +38,7 @@
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link" href="./index.php">Home</a>
+                <a class="nav-link" href="./home.php">Home</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="./add.php">Add Contact</a>
@@ -53,7 +53,7 @@
             <div class="col-md-4 mx-auto">
               <div class="card card-body text-center">
                 <p>HTTP 404 NOT FOUND</p>
-                <a href="index.php">Return home page</a>
+                <a href="home.php">Return home page</a>
               </div>
             </div>
             </div>

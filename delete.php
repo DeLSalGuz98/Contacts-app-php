@@ -14,5 +14,5 @@
     //$dropContact -> bindParam(":id", $id);
     $dropContact -> execute([":id"=> $id]);
 
-    header("Location: index.php");
+    header("Location: home.php");
 ?>

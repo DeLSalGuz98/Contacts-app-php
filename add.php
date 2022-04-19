@@ -17,7 +17,7 @@
       $saveData -> bindParam(":name", $name);
       $saveData -> bindParam(":phone_number", $phoneNumber);
       $saveData -> execute();
-      header("Location: index.php");
+      header("Location: home.php");
     }
   }
   ?>

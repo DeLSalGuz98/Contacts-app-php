@@ -6,6 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./static/css/index.css">
+    <?php
+        $uri = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
+    ?>
+    <?php if($uri == "/CursoPHP/contacs-app/" || $uri == "/CursoPHP/contacs-app/index.php"): ?>
+        <script defer src="./static/js/welcome.js"></script>
+    <?php endif ?>
     <!-- Boostrap -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/5.1.3/darkly/bootstrap.min.css"
         integrity="sha512-ZdxIsDOtKj2Xmr/av3D/uo1g15yxNFjkhrcfLooZV5fW0TT7aF7Z3wY1LOA16h0VgFLwteg14lWqlYUQK3to/w=="
@@ -14,6 +20,7 @@
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
 
+    
     <title>Document</title>
 </head>
 
@@ -37,11 +44,17 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
-            <li class="nav-item">
-            <a class="nav-link" href="./index.php">Home</a>
+            <!-- <li class="nav-item">
+            <a class="nav-link" href="./home.php">Home</a>
             </li>
             <li class="nav-item">
             <a class="nav-link" href="./add.php">Add Contact</a>
+            </li> -->
+            <li class="nav-item">
+            <a class="nav-link" href="./register.php">Register</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="./login.php">Login</a>
             </li>
         </ul>
         </div>
