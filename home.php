@@ -1,5 +1,13 @@
 <?php
   require "database.php";
+
+  session_start();
+
+  if(!isset($_SESSION["User"])){
+    header("Location: index.php");
+    return;
+  }
+
   $contacts = $conection -> query("SELECT * FROM contacts");
 
 ?>
