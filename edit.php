@@ -1,6 +1,13 @@
 <pre>
     <?php
     require "database.php";
+    session_start();
+  
+    if(!isset($_SESSION["User"])){
+        header("Location: index.php");
+        return;
+    }
+
     $id = $_GET["id"];
     $lookData = $conection -> prepare("SELECT * FROM contacts WHERE id_contact = :id");
     $lookData -> execute([":id"=> $id]);
@@ -12,6 +19,12 @@
     }
 
     $getContact = $lookData-> fetch(PDO::FETCH_ASSOC); // Devuelve el valor en forma de un array asociativo
+
+    if($_SESSION['User']['id'] !== $getContact['id_contact']){
+        http_response_code(403);
+        echo("HTTP 403 UNAUTHORIZED");
+        return;
+    }
 
     $error = null;
 

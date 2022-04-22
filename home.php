@@ -8,7 +8,7 @@
     return;
   }
 
-  $contacts = $conection -> query("SELECT * FROM contacts");
+  $contacts = $conection -> query("SELECT * FROM contacts WHERE id_user = {$_SESSION['User']['id']}");
 
 ?>
 <?php require "./partials/header.php"?>

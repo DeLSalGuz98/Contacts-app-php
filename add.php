@@ -19,7 +19,7 @@
       $name = $_POST["name"];
       $phoneNumber = $_POST["phone_number"];
   
-      $saveData = $conection-> prepare("INSERT INTO contacts(name, phone_number) VALUES (:name, :phone_number)");
+      $saveData = $conection-> prepare("INSERT INTO contacts(id_user, name, phone_number) VALUES ({$_SESSION['User']['id']}, :name, :phone_number)");
       $saveData -> bindParam(":name", $name);
       $saveData -> bindParam(":phone_number", $phoneNumber);
       $saveData -> execute();
